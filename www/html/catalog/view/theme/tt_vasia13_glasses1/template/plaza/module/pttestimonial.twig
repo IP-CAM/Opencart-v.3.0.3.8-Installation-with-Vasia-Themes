@@ -1,0 +1,84 @@
+<div class="testimonial-module">
+    <div class="block-title">
+        <div class="title"><span>{{ title }}</span></div>
+		{% if text_module_testimonial %}
+			<p>{{ text_module_testimonial }}</p>
+		{% endif %}
+    </div>
+    <div class="swiper-viewport">
+        
+		<div class="swiper-container testimonial-slides ">
+            <div class="swiper-wrapper">
+                {% for testimonial in testimonials %}
+                    
+					<div class="testimonial-content swiper-slide">
+                        <div class="inner">
+							<div class="testimonial-box">
+								<p>{{ testimonial.content }}</p>
+							</div>
+							<div class="testimonial-images testimonial-images-{{ i }}">
+								<a href="javascript:void(0);" onclick="testimonialGoToSlide({{ i }})">
+                                    {% if lazy_load %}
+                                        <img class="lazyload" src="data:image/svg+xml,%20%3Csvg%20viewBox%3D%220%200%20224%20156%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3C%2Fsvg%3E" data-src="{{ testimonial.image }}" alt="{{ testimonial.customer_name }}" />
+                                    {% else %}
+                                        <img src="{{ testimonial.image }}" alt="{{ testimonial.customer_name }}" />
+                                    {% endif %}
+                                </a>
+								<span class="testimonial-author">{{ testimonial.customer_name }}</span>
+							</div>
+						</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+		
+        {% if slide.pagination %}
+            <div class="swiper-pagination testimonial-pagination"></div>
+        {% endif %}
+
+        {% if slide.navigation %}
+            <div class="swiper-pager">
+                <div class="swiper-button-next swiper-testimonial-button-next"></div>
+                <div class="swiper-button-prev swiper-testimonial-button-prev"></div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<script type="text/javascript">
+    var testimonial_slides = $(".testimonial-slides").swiper({
+        spaceBetween: 0,
+        {% if slide.pagination %}
+        pagination: '.testimonial-pagination',
+        paginationClickable: true,
+        {% endif %}
+        {% if slide.navigation %}
+        nextButton: '.swiper-testimonial-button-next',
+        prevButton: '.swiper-testimonial-button-prev',
+        {% endif %}
+        speed: {% if slide.speed %} {{ slide.speed }} {% else %} 300 {% endif %},
+        slidesPerView: {{ slide.items }},
+        slidesPerColumn: {{ slide.rows }},
+        autoplay: {% if slide.auto %} 3000 {% else %} false {% endif %},
+        loop: true,
+		breakpoints: {
+			1199: {
+				slidesPerView: 1
+			},
+			991: {
+				slidesPerView: 1
+			},
+			767: {
+				slidesPerView: 1
+			},
+			479: {
+				slidesPerView: 1
+			},
+			374: {
+				slidesPerView: 1
+			}
+		}
+    });
+
+    
+</script>

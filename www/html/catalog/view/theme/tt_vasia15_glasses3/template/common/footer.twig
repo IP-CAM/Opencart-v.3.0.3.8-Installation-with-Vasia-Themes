@@ -1,0 +1,78 @@
+<footer>
+	<div class="footer-links">  
+	  	<div class="container">
+			<div class="inner btn-group-vertical">
+				<div class="row">
+					<div class="col col-md-4 col-sm-6 col-xs-12">
+						<div class="btn-group ">
+							<div id="btnGroupVerticalDrop4" data-toggle="dropdown" class="dropdown-toggle title">{{ text_customer_service }}<i class="visible-xs icon-rt-arrow-down"></i></div>
+							<div class="dropdown-menu footer-content" aria-labelledby="btnGroupVerticalDrop4">
+								{{ position6 }}
+							</div>
+						</div>
+						
+					</div>
+					<div class="col col-md-2 col-sm-6 col-xs-12">
+						<div class="btn-group">
+							<div id="btnGroupVerticalDrop2" data-toggle="dropdown" class="dropdown-toggle title">{{ text_information }}<i class="visible-xs icon-rt-arrow-down"></i></div>
+							<div class="dropdown-menu footer-content footer-information" aria-labelledby="btnGroupVerticalDrop2">
+								<ul class="list-unstyled">
+								{% if informations %}
+									{% for information in informations %}
+									  <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+									{% endfor %}
+								{% endif %}
+								<li><a href="{{ account }}">{{ text_account }}</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col col-md-2 col-sm-6 col-xs-12">
+						<div class="btn-group">
+							<div id="btnGroupVerticalDrop3" data-toggle="dropdown" class="dropdown-toggle title">{{ text_service }}<i class="visible-xs icon-rt-arrow-down"></i></div>
+							<div class="dropdown-menu footer-content" aria-labelledby="btnGroupVerticalDrop3">
+								<ul class="list-unstyled">
+								  <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+								  <li><a href="{{ return }}">{{ text_return }}</a></li>
+								  <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+								  <li><a href="{{ order }}">{{ text_order }}</a></li>
+								<li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col col-md-4 col-sm-6 col-xs-12">
+						<div class="btn-group ">
+							<div id="btnGroupVerticalDrop4" data-toggle="dropdown" class="dropdown-toggle title">{{ text_sign_up }}<i class="visible-xs icon-rt-arrow-down"></i></div>
+							<div class="dropdown-menu footer-content" aria-labelledby="btnGroupVerticalDrop4">
+								{{ position5 }}
+							</div>
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+	  	</div>
+	</div>
+	<div class="footer-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<p class="text-powered">{{ powered }}</p>
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="header-social"><ul class="social"><li><a href="https://www.facebook.com/PlazaThemes1/" class="facebook" target="_blank" title="Facebook"><i class="icon-rt-4-facebook-f"></i><span>facebook</span></a></li><li><a href="https://twitter.com/plazathemes" target="_blank" class="twitter" title="Twitter"><i class="icon-rt-logo-twitter"></i><span>twitter</span></a></li><li><a href="#" target="_blank" class="instagram" title="Instagram"><i class="icon-rt-logo-instagram"></i><span>instagram</span></a></li><li><a href="https://www.youtube.com/user/plazathemes" target="_blank" class="youtube" title="Youtube"><i class="icon-rt-2-youtube2"></i><span>youtube</span></a></li><li><a href="#" target="_blank" class="pinterest" title="pinterest"><i class="icon-rt-6-pinterest-p"></i><span>pinterest</span></a></li></ul></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+</div></body></html>

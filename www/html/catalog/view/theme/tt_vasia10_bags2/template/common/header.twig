@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if IE 8 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie8"><![endif]-->
+<!--[if IE 9 ]><html dir="{{ direction }}" lang="{{ lang }}" class="ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html dir="{{ direction }}" lang="{{ lang }}">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+<link href="catalog/view/javascript/jquery/swiper/css/swiper.min.css" rel="stylesheet" type="text/css" />
+<!-- icon font -->
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="catalog/view/javascript/roadthemes-icons/style.css" rel="stylesheet" type="text/css" />
+<!-- end icon font -->
+{% if minify_css %}
+<link href="{{ minify_css_url }}" rel="stylesheet" media="screen" />
+{% endif %}
+{% if not minify_css %}
+<link href="catalog/view/theme/tt_vasia10_bags2/stylesheet/stylesheet.css" rel="stylesheet">
+<link href="catalog/view/theme/tt_vasia10_bags2/stylesheet/plaza/header/header{{ header_layout }}.css" rel="stylesheet">
+<link href="catalog/view/theme/tt_vasia10_bags2/stylesheet/plaza/theme.css" rel="stylesheet">
+<!-- Quick view -->
+{% if use_quick_view %}
+<link href="catalog/view/theme/tt_vasia10_bags2/stylesheet/plaza/quickview/quickview.css" rel="stylesheet" type="text/css" />
+{% endif %}
+<!-- Advance -->
+{% if custom_css %}
+<style>
+{{ custom_css }}
+</style>
+{% endif %}
+{% endif %}
+{% if minify_js %}
+<script src="{{ minify_js_url }}" ></script>
+{% endif %}
+{% if not minify_js %}
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" ></script>
+<!-- Bootstrap Js -->
+<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" ></script>
+<script src="catalog/view/javascript/jquery/swiper/js/swiper.min.js" ></script>
+{% if lazy_load %}
+<script src="catalog/view/javascript/plaza/lazyload/lazysizes.min.js"></script>
+{% endif %}
+{% if use_quick_view %}
+<script src="catalog/view/javascript/plaza/cloudzoom/cloud-zoom.1.0.2.min.js" ></script>
+<script src="catalog/view/javascript/plaza/cloudzoom/zoom.js" ></script>
+<script src="catalog/view/javascript/plaza/quickview/quickview.js" ></script>
+{% endif %}
+{% for script in scripts %}
+<script src="{{ script }}" ></script>
+{% endfor %}
+<script src="catalog/view/javascript/common.js" ></script>
+{% if custom_js %}
+<script>
+    {{ custom_js }}
+</script>
+{% endif %}
+{% endif %}
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %}
+</head>
+<body class="{{ class }}">
+<input type="hidden" id="hd-check-lazy" value="{% if lazy_load %}1{% else %}0{% endif %}" />
+<input type="hidden" id="hd-check-scroll-top" value="{% if scroll_top %}1{% else %}0{% endif %}" />
+<input type="hidden" id="hd-check-sticky-header" value="{% if sticky_header %}1{% else %}0{% endif %}" />
+<div class="wrapper">
+{% if scroll_top %}
+  <div id="back-top"><i class="icon-rt-arrow-up"></i></div>
+{% endif %}
+{{ header }}
