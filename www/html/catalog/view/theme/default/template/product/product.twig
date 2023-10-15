@@ -546,5 +546,182 @@ $(document).ready(function() {
 		}
 	});
 });
-//--></script> 
+//--></script>
+
+
+<!-- JSON-LD Breadcrumbs -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Books",
+            "item": "https://example.com/books"
+        },{
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Science Fiction",
+            "item": "https://example.com/books/sciencefiction"
+        },{
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Award Winners"
+        }]
+    }
+</script>
+
+<!-- JSON-LD imageGallery -->
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "ImageGallery",
+        "description":"desc",
+        "image":"img",
+        "name":"nane",
+        "potentialAction":"dsfdsf",
+        "url":"fdsfds"
+    }
+</script>
+
+
+<!-- JSON-LD MobilePhoneStore -->
+<script type='application/ld+json'>
+    {
+        "@context": "http://www.schema.org",
+        "@type": "MobilePhoneStore",
+        "name": "MyShop",
+        "url": "21321321321",
+        "logo": "Logo",
+        "priceRange": "$$",
+        "image": "img",
+        "description": "description",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "address",
+            "addressLocality": "city",
+            "addressRegion": "state",
+            "postalCode": "zip",
+            "addressCountry": "counrty"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "lat",
+            "longitude": "long"
+        },
+        "hasMap": "map",
+        "openingHours": "Su 07:30-08:30",
+        "telephone": "213213213213"
+    }
+</script>
+
+<!-- JSON-LD Article -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://example.com/my-news-article"
+        },
+        "headline": "Article headline",
+        "image": [
+            "https://patrickcoombe.com/wp-content/uploads/2014/05/patrick-coombe.jpg",
+            "https://example.com/photos/4x3/photo.jpg",
+            "https://example.com/photos/16x9/photo.jpg"
+        ],
+        "datePublished": "2019-01-05T08:00:00+08:00",
+        "dateModified": "2019-01-05T09:20:00+08:00",
+        "author": {
+            "@type": "Person",
+            "name": "Patrick Coombe"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Elite Strategies",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://elitestrategies-elitestrategies.netdna-ssl.com/wp-content/uploads/2013/04/elitestrategies.png"
+            }
+        },
+        "description": "A most wonderful article"
+    }
+</script>
+
+
+
+<!-- JSON-LD Product -->
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "sku": "{{ model }}",
+        "brand": {
+          "@type": "Brand",
+          "name": "{{ manufacturer }}"
+        },
+        "image": [
+    {% for image in images %}
+        {{ '"' ~  image.thumb ~ '"' }}
+        {% if loop.index < loop.length %}
+            {{ ',' }}
+        {% endif %}
+    {% endfor %}
+    ],
+    "name": "{{ heading_title }}",
+        "description": "{{ short_description|escape }}",
+        "review": {
+        "@type": "Review",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": 4,
+            "bestRating": 5
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Fred Benson"
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 4.4,
+          "reviewCount": 89
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "url": "https://example.com/anvil",
+          "offerCount": 5,
+          "price": 119.99,
+          "priceCurrency": "USD",
+          "priceValidUntil": "2020-11-20",
+          "itemCondition": "https://schema.org/UsedCondition",
+          "availability": "https://schema.org/InStock",
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": [
+              {
+                "@type": "DefinedRegion",
+                "addressCountry": "US",
+                "addressRegion": ["NY"]
+              }
+            ]
+          },
+          "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "CH",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 60,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn"
+          }
+        }
+    }}
+</script>
+
 {{ footer }} 

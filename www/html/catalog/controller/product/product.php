@@ -100,6 +100,8 @@ class ControllerProductProduct extends Controller {
 					'text' => $manufacturer_info['name'],
 					'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $this->request->get['manufacturer_id'] . $url)
 				);
+
+                $data['manufacturer'] = $manufacturer_info['name'];
 			}
 		}
 
