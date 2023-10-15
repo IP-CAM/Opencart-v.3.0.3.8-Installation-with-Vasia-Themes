@@ -402,6 +402,10 @@ class ControllerProductSearch extends Controller {
 			$pagination->page = $page;
 			$pagination->limit = $limit;
 			$pagination->url = $this->url->link('product/search', $url . '&page={page}');
+            
+            if($page > 1){
+                $this->document->setTitle($this->document->getTitle() . ' ' . $page);
+            }
 
 			$data['pagination'] = $pagination->render();
 

@@ -248,6 +248,7 @@ class ControllerProductSpecial extends Controller {
 		
 		if ($page > 1) {
 			$this->document->addLink($this->url->link('product/special', (($page - 2) ? '&page='. ($page - 1) : ''), true), 'prev');
+            $this->document->setTitle($this->document->getTitle() . ' ' . $page);
 		}
 
 		if ($limit && ceil($product_total / $limit) > $page) {

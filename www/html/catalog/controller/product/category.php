@@ -342,6 +342,7 @@ class ControllerProductCategory extends Controller {
 			
 			if ($page > 1) {
 			    $this->document->addLink($this->url->link('product/category', 'path=' . $category_info['category_id'] . (($page - 2) ? '&page='. ($page - 1) : '')), 'prev');
+                $this->document->setTitle($this->document->getTitle() . ' ' . $page);
 			}
 
 			if ($limit && ceil($product_total / $limit) > $page) {
