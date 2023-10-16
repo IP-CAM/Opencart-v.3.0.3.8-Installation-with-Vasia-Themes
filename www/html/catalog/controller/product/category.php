@@ -110,7 +110,10 @@ class ControllerProductCategory extends Controller {
 				$data['thumb'] = '';
 			}
 
-			$data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
+            if($page == 1){
+                $data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
+            }
+
 			$data['compare'] = $this->url->link('product/compare');
 
 			$url = '';
